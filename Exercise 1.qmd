@@ -1,0 +1,29 @@
+---
+title: "Exercise 1"
+format: html
+---
+
+## Import packages
+
+```{r}
+library(ggplot2)
+```
+
+## Draw samples
+
+```{r}
+values = rlnorm(100, meanlog=5, sdlog=0.5)
+df = data.frame(values=values)
+```
+
+The samples have a mean of `r mean(values)` and a standard deviation of `r sd(values)`.
+
+## Plot distribution
+
+```{r}
+ggplot(df, aes(values)) + geom_histogram()
+
+ggplot(df, aes(values)) + geom_histogram() + scale_y_log10()
+
+ggplot(df, aes(x="", y=values)) + geom_violin() + scale_y_log10()
+```
